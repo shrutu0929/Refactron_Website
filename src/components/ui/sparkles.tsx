@@ -14,6 +14,15 @@ interface SparklesProps {
   speed?: number;
 }
 
+interface Particle {
+  x: number;
+  y: number;
+  size: number;
+  speedX: number;
+  speedY: number;
+  opacity: number;
+}
+
 export const Sparkles = ({
   id,
   className,
@@ -27,7 +36,7 @@ export const Sparkles = ({
   const generatedId = useId();
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const [context, setContext] = useState<CanvasRenderingContext2D | null>(null);
-  const [particles, setParticles] = useState<any[]>([]);
+  const [particles, setParticles] = useState<Particle[]>([]);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
